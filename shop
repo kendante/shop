@@ -1,0 +1,76 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    cout << "Welcome to our shop!\n";
+    cout << "What would you like to buy?" << endl;
+    cout << "===========================" << endl;
+    cout << "===========Menu-===========" << endl;
+    cout << "1. Chicken\n";
+    cout << "2. Beef\n";
+    cout << "3. Pork\n";
+    cout << "4. Fish\n";
+
+    float totalcost = 0.0;
+    float cost;
+    string itemName;
+    string receipt = "Receipt: \n";
+    int choice;
+
+    while (true)
+    {
+        cout << "What would you like to buy? (0 to exit): "; cin >> choice;
+
+        if(choice == 0)
+        {
+            break;
+        }
+        if(choice < 1 || choice > 4)
+        {
+            cout << "Invalid Option!\n";
+            continue;
+        }
+
+        switch(choice)
+        {
+        case 1:
+            itemName = "Chicken";
+            cost = 100;
+            totalcost += 100;
+            break;
+        case 2:
+            itemName = "Beef";
+            cost = 120;
+            totalcost += 120;
+            break;
+        case 3:
+            itemName = "Pork";
+            cost = 150;
+            totalcost += 150;
+            break;
+        case 4:
+            itemName = "Fish";
+            cost = 90;
+            totalcost += 90;
+            break;
+        }
+        receipt += itemName + "\t - \tP"+ to_string(cost) + "\n";
+        cout << "Added " << itemName << " to your cart!\n";
+    }
+
+
+
+        if(totalcost > 0)
+        {
+            receipt += "TotalCost =\tP" + to_string(totalcost) + "\n";
+        }else{
+            receipt += "\nYou didnt even bought anything";
+        }
+
+        system("cls");
+        cout << receipt;
+        cout << "\n\n\n\n\n\n\n\n";
+
+        return 0;
+}
